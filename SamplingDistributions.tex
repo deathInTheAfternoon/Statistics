@@ -10,19 +10,22 @@
 \maketitle
 
 \section{Introduction}
-A 'sample statistic' is calculated using data from a sample. We're going to discuss how these statistics can be generalised to infer something about population parameters.
+A 'sample statistic' is calculated using data from a sample. We're going to discuss how these statistics can be generalised to infer something about population parameters. To aid the discussion we focus on the simple statistic of 'the mean' as this unlocks one of statistics mighty pillars.
 
-Let's start with a contrast. In regression analysis we take a sample and then analyse the relationship between two variables. This is very much focused upon the sample itself. However, in statistical analysis we want to go beyond talking about attributes of a single sample. We want to know about what those attributes say about the population from which the sample was drawn.
+Let's start with a contrast. In regression analysis we take a sample and then analyse the relationship between two variables. This is very much focused upon the sample itself. However, in statistical analysis we want to go beyond talking about attributes of a single sample. We want to understand what those attributes say about the population from which the sample was drawn.
 
-This jump from particular sample to general population is called statistical inference. But to make this jump we will use well known regularities found in the aggregate behaviour of many samples taken from a population. These patterns are known as sampling distributions.
+This jump from particular sample to general population is called statistical inference. But how is that jump made? What is hidden within a single sample that might help us infer something about its wider population? In fact, the answer lies within the study of \textbf{many} samples. Imagine drawing a random sample of fixed size from the population. It is a 'random sample' because each member of the population has an equal chance of being selected. Now record the mean of that sample and repeat the process of drawing a sample and recording the mean a large number of times. Statisticians group these means to form a theoretical construct known as a sampling distribution. It is a distribution because each of these means will differ to some degree as each sample is more or less different from the other.
 
-The sampling distribution is a theoretical construct. Imagine taking a very large number of samples from a population, each of fixed size. These samples are called 'random samples' because every member of the population has an equal chance of being included in the sample. 
+As an aside, do not confuse 'sampling distribution' with a 'sample distribution': the 'sampling' describes the shape of the mean when sampling repeatedly, while the 'sample' concerns the shape of the data within a single sample.
 
-Now, every time a sample is taken, some statistic is measured - we will use the mean. Each of these means will usually differ as each sample is more or less different from the other. These differences are called sampling errors whereby the sample statistic deviates from the population parameter's value.
+And it is within the sampling distributions that statisticians have discovered amazing regularities which act like a bridge from the particular to the general upon which inference can pass. These regularities are captured by the 'central limit theorem'.
 
-We record each of the means and plot them on a distribution known as the 'sampling distribution'. Do not confuse this with a 'sample distribution' which concerns the shape of the data within a single sample. The sampling distribution describes the shape of a statistic across many samples. It is this distribution that reveal an amazing hidden regularity that allows us to infer population parameters. This is captures in the 'central limit theorem'.
+The central limit theorem says that if you take a large number of samples of fixed size then the distribution of the means will approach a normal distribution. Further, the mean of the sampling distribution approximates the mean of the population from which the samples were drawn. Finally, the standard deviation of the sampling distribution (of the sample means) is equal to the population standard deviation divided by the square root of the fixed sample size.
 
-The central limit theorem says that if you take a large number of samples of fixed size then the distribution of the means will approach a normal distribution. The theorem has been shown to be true in a wide range of circumstances and is the central engine of statistical inference. It says that the mean of the sampling distribution approximates the mean of the population from which the samples were drawn. It also says that the standard deviation of the sampling distribution (of the sample means) is equal to the population standard deviation divided by the square root of the fixed sample size.
+The theorem has been shown to be true in a wide range of circumstances and is a central engine of statistical inference. It is these regularities that connect characteristics of individual samples to population parameters.
+
+There is some new terminology to introduce at this point. Earlier we said the mean differed between random samples. The 'sample error' or 'sample variation' (statistics often uses the term error to indicate 'noise' in a process - not error as in mistake) describes the degree to which a sample mean deviates from the population mean. Also, given the distribution of many sample means, their standard deviation is not called 'standard deviation' but 'standard error'. 
+
 
 
 
