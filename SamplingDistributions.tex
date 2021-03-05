@@ -14,7 +14,7 @@ A 'sample statistic' is calculated using data from a sample. We're going to disc
 
 Let's start with a contrast. In regression analysis we take a sample and then analyse the relationship between two variables. This is very much focused upon the sample itself. However, in statistical analysis we want to go beyond talking about attributes of a single sample. We want to understand what those attributes say about the population from which the sample was drawn.
 
-This jump from particular sample to general population is called statistical inference. But how is that jump made? What is hidden within a single sample that might help us infer something about its wider population? In fact, the answer lies within the study of \textbf{many} samples. Imagine drawing a random sample of fixed size from the population. It is a 'random sample' because each member of the population has an equal chance of being selected. Now record the mean of that sample and repeat the process of drawing a sample and recording the mean a large number of times. Statisticians group these means to form a theoretical construct known as a sampling distribution. It is a distribution because each of these means will differ to some degree as each sample is more or less different from the other.
+This jump from particular sample to general population is called statistical inference. But how is that jump made? What is hidden within a single sample that might help us infer something about its wider population? In fact, the answer lies within the study of \textbf{many} samples. Imagine drawing a random sample of fixed size from the population. It is a 'random sample' because each member of the population has an equal chance of being selected. Now record the mean of that sample and repeat the process of drawing a sample and recording the mean a large number of times. Statisticians then group these means to form a theoretical construct known as a sampling distribution. It is a distribution because each of these means will differ to some degree as each sample is more or less different from the other.
 
 As an aside, do not confuse 'sampling distribution' with a 'sample distribution': the 'sampling' describes the shape of the mean when sampling repeatedly, while the 'sample' concerns the shape of the data within a single sample.
 
@@ -24,11 +24,14 @@ The central limit theorem says that if you take a large number of samples of fix
 
 The theorem has been shown to be true in a wide range of circumstances and is a central engine of statistical inference. It is these regularities that connect characteristics of individual samples to population parameters.
 
-There is some new terminology to introduce at this point. Earlier we said the mean differed between random samples. The 'sample error' or 'sample variation' (statistics often uses the term 'error' to indicate 'noise' in a process and not 'error' as in mistake) describes the degree to which a sample mean deviates from the population mean. The magnitude of these errors dictates the spread of the approximated normal curve. In fact, the standard deviation which measures spread is renamed 'standard error'.
+\subsection{Sample Error and Standard Error}
 
-We'll stop for a moment to address a common point of confusion. Our examples above have a known population mean. If you know the population mean, well...there isn't much left to infer. Surely, we don't now the population mean?
+Earlier we explained why the mean differed between random samples. The 'sample error' or 'sample variation' (statisticians often uses the term 'error' to indicate 'noise' or 'variation' and not 'error' as in mistake) describes the degree to which a particular sample mean deviates from the population mean. Given the CLT, we expect these sample errors to vary in magnitude and resemble a normal distribution. The standard deviation of these errors is renamed 'standard error'. Therefore, the standard error gives an indication of how spread out are the magnitudes of the sample errors.
 
-Yes, we don't. But we can hypothesize a population mean. If we suggest a mean, we know the normal distribution the sampling distribution will approximate. This allows us to work out exactly how (un)likely we were to get the actual sample in our hands. 
+\subsection{CLT in action}
+Quite often in the previous discussion we have spoken about the population parameter as though it's known which begs the question 'If you already know the population parameter - there isn't much left to infer?!'. 
+
+Of course, we often don't know the population mean. But we can hypothesize its value and test a sample mean to see whether that value is so unusual that the hypothesized population mean looks ludicrous. We can do this because given a hypothesized mean, the CLT tells us that a distribution of the sample mean approximates a normal distribution. And it is this distribution that allows us to work out exactly how (un)likely we were to get the actual sample in our hands if the hypothesized mean were true. 
 
 
 
