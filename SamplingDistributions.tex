@@ -1,16 +1,32 @@
-\documentclass{article}
+\documentclass[a4paper,twosided,notoc]{tufte-book}
 \usepackage[utf8]{inputenc}
 
-\title{Sampling Distributions}
-\author{Naveen Thakur }
-\date{March 2021}
+\hypersetup{colorlinks}	
+
+%metadata for book
+\author{Naveen Thakur}
+\title{Statistics in Action}
+\date{January 2021}
+\publisher{Version 0.1}
 
 \begin{document}
-
 \maketitle
+\begin{fullwidth}
+	\tableofcontents
+\end{fullwidth}
 
-\section{Introduction}
-A 'sample statistic' is calculated using data from a sample. We're going to discuss how these statistics can be generalised to infer something about population parameters. To aid the discussion we focus on the simple statistic of 'the mean' as this unlocks one of statistics mighty pillars.
+
+\chapter{Statistical Inference}
+A 'sample statistic' such as the mean, variance or proportion, is calculated using data obtained from an actual sample \sidenote{What is the mean of 0.12, 1.1, 0.9, 0.17, 0.08? These are the masses relative to the sun of the five nearest star-like objects in space. The summary data (statistic) is the requested mean and the list of solar masses the sample data.}
+We're going to discuss how these statistics can be generalised to infer something about the population from which it came. Why is this important? Here's an example.
+
+In 2014, American and European surveys showed that between $15\%-30\%$ of adult workers are involved in shift work \sidenote{\href{https://www.sciencedirect.com/science/article/abs/pii/S0369811414001230}{Impact of shift work on sleep and circadian rhythms}}. The survey paper looked specifically at the potentially dangerous effects of shift work on worker performance. However, by 2020 research \sidenote{\href{https://www.nature.com/articles/s41597-020-00709-6}{Brain activity and transcriptional profiling in mice under chronic jet lag}}is suggesting that shift work may be associated with far more types of 'adverse health outcomes' including increased risk of cardiovascular disorders, neurological diseases, cognitive defects and increased risk of mental illnesses.
+
+Of course, the question is 'why'? Why is shift work affecting the brain/body and increasing the risk of various conditions? The title of the second paper mentioned above includes the intriguing phrase '...mice under chronic jet lag'. It turns out that you can simulate shift work by inducing 'chronic jet lag' (in mice) by disrupting their exposure to light and dark. PET scans can then be used to examine the volume of activity within their brains (measured by glucose usage) and RNA sequencing used to show any disruption in gene expression. The results are startling in that after 34 days there are 'prominent and pervasive' changes in brain activity and that even after 10 days circadian gene expression \sidenote{\href{https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3762864/}{Beautiful definition of circadian rhythms which affect body and brain:} "As the sun sets, nocturnal rodents begin to forage, nocturnal birds of prey begin their hunt while diurnal birds of prey sleep, filamentous fungi begin their daily production of spores, and cyanobacteria begin nitrogen fixation in an environment of low O2 after the day’s photosynthesis. As the sun rises the next morning many plants have positioned their leaves to catch the first rays of light and many humans sit motionless in cars on a nearby gridlocked highway. It is now understood that the obedience to temporal niches in these and all organisms is governed by a molecular circadian clock. These clocks are not driven by sunlight, but are rather synchronized by the 24 hour patterns of light and temperature produced by the earth’s rotation."} undergoes substantial change. 
+
+But here's our question: only 15 mice were used to test the effect of CJL. But there are reportedly 10s of millions \sidenote{That's a  \href{https://www.sciencemag.org/news/2021/01/how-many-mice-and-rats-are-used-us-labs-controversial-study-says-more-100-million}{gory and statistically controversial number} in an area of ethical minefields. 6 mice were sacrificed in this study - what's your evaluation?} of mice in laboratories being used for research as you read this. Surely we should test all those mice to be sure?! It's obvious why each mouse in the world was not subject to CJL, PET, brain dissection and RNA sequencing. The time and cost would be prohibitive and a world without mice unthinkable. So why are we entitled to generalize and to what degree?
+
+To aid the discussion we focus on the well known sample statistic 'the mean' - this will reveal one of the mighty pillars of statistical inference.
 
 Let's start with a contrast. In regression analysis we take a sample and then analyse the relationship between two variables. This is very much focused upon the sample itself. However, in statistical analysis we want to go beyond talking about attributes of a single sample. We want to understand what those attributes say about the population from which the sample was drawn.
 
