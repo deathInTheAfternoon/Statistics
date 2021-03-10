@@ -1,6 +1,10 @@
 \documentclass[a4paper,twosided,notoc]{tufte-book}
 \usepackage[utf8]{inputenc}
-
+% For nicely typeset tabular material
+\usepackage{booktabs}
+% For images
+\usepackage{graphicx}
+ 
 \hypersetup{colorlinks}	
 
 %metadata for book
@@ -55,7 +59,80 @@ Quite often in the previous discussion we have spoken about the population param
 
 Of course, we often don't know the population mean. But we can hypothesize its value and test a sample mean to see whether that value is so unusual that the hypothesized population mean looks ludicrous. We can do this because given a hypothesized mean, the CLT tells us that a distribution of the sample mean approximates a normal distribution. And it is this distribution that allows us to work out exactly how (un)likely we were to get the actual sample in our hands if the hypothesized mean were true. 
 
+\subsection{The example}
+The gallbladder is a small pouch nestled under the liver where it collects a fluid known as bile used to break down fats during digestion. Unlike many other organs, it's not essential to survival and can be safely removed if it develops any problems. This surgical procedure is known as a cholecystectomy ('coal-eh-sis-tec-tuhmy'). Modern surgery has made a cholecystectomy into a keyhole procedure in which case it is called a 'laparoscopic cholecystectomy'. However, the operation is usually performed under general anaesthesia which in and of itself can result in post-operative nausea and vomiting (PONV). This can be a problem as preventing a would from healing, dehydration and increased pain \sidenote{\href{https://handbook.ggcmedicines.org.uk/guidelines/pain-post-operative-nausea-and-vomiting-and-palliative-care-symptoms/management-of-postoperative-nausea-and-vomiting-ponv/}{Details here}}.
 
+In 2004, Japanese anaesthetist Dr Yoshitaka Fujii and colleagues decided to test an anaesthetic drug called Granisetron, used to prevent nausea after chemotherapy. 
+
+The key point for now is that they used 'Random Controlled Trials' (RCT). The theory is simple. Pick people at random and assign them to 5 groups. One group is the control group (no treatment) while each of the other groups receives a different dose of Granisetron. This maximizes the chance that any effects detected are due to the drug and not to any other variable. For example, if the women were split into two groups (say over 50 and under 50), and the women over 50 responded strongly to treatment, then what caused the improvement?. Perhaps women over 50 would have minimal PONV without the drug. By randomizing we ensure each group has a healthy mix of participants and any effect is morel likely to be due to treatment. Now we will have women under 50 and over 50 responding well to treatment. This is a super important basis for clinical trials.
+
+They concluded that over $20\mu g/kg^{-1}$ but less than $80\mu g/kg^{-1}$ of Granisetron made a dramatic improvement to the rate of those suffering PONV after laparoscopic cholecystectomy.
+
+Let's examine some of the simpler results - something is lurking!
+
+In the results table/ below, each measured value is written in the form 'mean (standard deviation)'. The first column is a description of each variable measured for each of the 100 participants. The second column gives the value of those variables for the 20 participants in the placebo group (control group). The other four groups, each containing 20 participants, were randomly assigned to take differing doses of Granisteron (micro grammes per kilogram of body weight). The last column is the mean of the means and standard deviations in the previous five columns (CLT).
+
+\begin{table}[h]
+	\begin{center}
+		\footnotesize
+		\begin{tabular}{lcccccc}
+			\toprule
+			\multicolumn{1}{l}{Variable} & \multicolumn{1}{c}{Placebo} & \multicolumn{4}{|c|}{Granisteron $\mu g/kg^{-1}$} & \multicolumn{1}{r}{$\approx\mu_{pop}$} \\
+			 &  & 10 & 20 & 40 & 80 & \\
+			\midrule
+			Age (y)                         & 46 (8)   & 47 (7)   & 45 (11)  & 47 (10)  & 50 (11)  & 47 (9.4)   \\
+			Height (cm)                     & 159 (10) & 158 (9)  & 155 (11) & 157 (10) & 159 (9)  & 158 (9.8) \\
+			Weight (kg)                     & 57 (7)   & 57 (9)   & 54 (7)   & 54 (8)   & 58 (8)   & 56 (8.2)   \\
+			Surgery (min)                   & 86 (35)  & 92 (31)  & 83 (34)  & 87 (36)  & 92 (27)  & 88 (32.6)  \\
+			Anaesthetic (min)               & 106 (35) & 117 (33) & 106 (36) & 112 (37) & 118 (29) & 112 (34) \\
+			Fentanyl\footnotemark{} ($\mu$g) 				& 103 (79) & 98 (73)  & 93 (73)  & 98 (79)  & 105 (86) & 99 (78)  \\
+			LMP\footnotemark{} (d)       & 16 (3)   & 16 (3)   & 16 (3)   & 16 (3)   & 16 (3)   & 16 (3) \\
+			\bottomrule
+		\end{tabular}
+	\end{center}
+	\caption{Granisetron dosage for five groups}
+	\label{tab:heading-styles}
+\end{table}
+\footnotetext{Last Menstrual Period}
+\footnotetext{Fixed dosage at start, with additional amounts during operation (recorded). It is a pain killer over 100 times more powerful than morphine! Read the story in the startlingly named  \href{https://www.jpain.org/article/S1526-5900(14)00905-5/pdf}{'The Journal of Pain'}. Yikes!}
+
+Examine each row from left to right, and see if you notice anything odd. Given a random assignment of women to each group, the last row is surprisingly uniform. Let's park that for now and let's look at the rest of the data.
+
+Thanks to the CLT, whether each sample measures age or weight is irrelevant. The differences between the population mean and each sample mean can be approximated by same structure - that of a normal distribution. But what of the mean and deviation of this curve? Using the well known sample 'z-score' we can transform each of the 35 results into a standardised score. These scores will have a mean and variance of their own that will allow us to examine their shape.
+
+Let's look at the first row. We take the population mean and standard deviation to be $\mu=47$ and $\sigma=9.4$. The equation for a XXXX is $\frac{\overline{\mu} - \mu}{\sigma/\sqrt{n}}$. Then for the first row $SEM=9.4/\sqrt{20} = 2.10$. Now let's look at the Placebo column. We calculate its score as $\frac{46 - 47}/2.10 = -0.48$ to two decimal places. The rest of the rows are calculated accordingly.
+
+\begin{table}[h]
+	\begin{center}
+		\footnotesize
+		\begin{tabular}{lcccccc}
+			\toprule
+			\multicolumn{1}{l}{Variable} & \multicolumn{1}{c}{SEM} & \multicolumn{1}{c}{Placebo} & \multicolumn{4}{|c|}{Granisteron $\mu g/kg^{-1}$} \\
+			&  & 10 & 20 & 40 & 80 & \\
+			\midrule
+			Age (y)                         & 2.10  & -0.48 & 0.00  & -0.95 & 0.00  & 1.43 \\
+			Height (cm)                     & 2.19  & 0.64  & 0.18  & -1.19 & -0.27 & 0.64 \\
+			Weight (kg)                     & 1.74  & 0.57  & 0.57  & -1.15 & -1.15 & 1.15 \\
+			Surgery (min)                   & 7.29  & -0.27 & 0.55  & -0.69 & -0.14 & 0.55 \\
+			Anaesthetic (min)               & 7.60  & -0.76 & 0.68  & -0.76 & 0.03  & 0.82 \\
+			Fentanyl ($\mu$g) 				& 17.44 & 0.21  & -0.08 & -0.37 & -0.08 & 0.32 \\
+			LMP (d)       & 0.67  & 0.00  & 0.00  & 0.00  & 0.00  & 0.00 \\
+			\bottomrule
+		\end{tabular}
+	\end{center}
+	\caption{Granisetron dosage for five groups}
+	\label{tab:heading-styles}
+\end{table}
+
+As a result, each of the 35 differences in mean can be mapped to the same distribution. What are its parameters? The mean of all 35 values is approximately zero but the standard deviation is $0.6393103$. Let's compare that to the ideal standard normal distribution to be expected from truly random values.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\linewidth]{screenshot001}
+	\caption{}
+	\label{fig:screenshot001}
+\end{figure}
+The blue curve is a standard normal distribution but the red curve is the plot derived from the samples above. The histogram shows the results in $0.25$ standard deviation increments. The analysis shows something interesting. There red curve has squeezed together because, as the histogram indicates, the results have cut off abruptly at the edges. If the RCT were random, you would expect more results around the edges which would tend to spread the red curve toward the black one.
 
 
 
